@@ -1,0 +1,70 @@
+
+[Defines]
+  INF_VERSION                    = 0x00010017
+  BASE_NAME                      = Xloader
+  FILE_GUID                      = 92a59ca7-13d4-4650-9389-6f1ed44ec499
+  VERSION_STRING                 = 1.0
+  MODULE_TYPE                    = DXE_DRIVER
+  ENTRY_POINT                    = InfoEntryPointDxeEntry
+
+[Sources]
+  Info.c
+  Info.h
+  InfoMac.c
+  InfoMac.h
+  InfoPrint.c
+  InfoPrint.h
+  InfoSmbios.c
+  InfoSmbios.h
+  #Main.c
+  rsa.h
+  public.h
+  keys.h
+  base64.h
+  rsa.c
+  bignum.c
+  base64.c
+  public.c
+  hal.c
+  hal.h
+  fv.h
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  #ShellPkg/ShellPkg.dec
+  CryptoPkg/CryptoPkg.dec
+  
+[LibraryClasses]
+  IoLib
+  PcdLib
+  BaseLib
+  UefiLib
+  PrintLib
+  DebugLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  UefiDriverEntryPoint
+  #UefiApplicationEntryPoint
+  #ShellLib
+  DevicePathLib
+  BaseCryptLib
+  FileHandleLib
+  DxeServicesLib
+  DxeServicesTableLib
+[Protocols]
+  #gEfiShellParametersProtocolGuid
+  gEfiSmbiosProtocolGuid
+  gEfiPciIoProtocolGuid
+  gEfiDevicePathProtocolGuid
+  gEfiLoadFileProtocolGuid
+  gEfiSimpleFileSystemProtocolGuid
+[Guids]
+
+[Pcd]
+
+[Depex]
+ gEfiSimpleFileSystemProtocolGuid AND 
+ gEfiSmbiosProtocolGuid AND
+ gEfiGraphicsOutputProtocolGuid

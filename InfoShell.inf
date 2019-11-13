@@ -1,0 +1,65 @@
+[Defines]
+  INF_VERSION                    = 0x00010017
+  BASE_NAME                      = InfoShell
+  FILE_GUID                      = 22a59ca7-13d4-4650-9389-6f1ed44ec499
+  VERSION_STRING                 = 1.0
+  MODULE_TYPE                    = UEFI_APPLICATION
+  ENTRY_POINT                    = InfoEntryPoint
+
+[Sources]
+  Infoshell.c
+  Infoshell.h
+  InfoMac.c
+  InfoMac.h
+  InfoPrint.c
+  InfoPrint.h
+  InfoSmbios.c
+  InfoSmbios.h
+  #InfoShell.h
+  #Main.c
+  rsa.h
+  public.h
+  keys.h
+  base64.h
+  rsa.c
+  bignum.c
+  base64.c
+  public.c
+  hal.c
+  hal.h  
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  ShellPkg/ShellPkg.dec
+  CryptoPkg/CryptoPkg.dec
+  
+[LibraryClasses]
+  IoLib
+  PcdLib
+  BaseLib
+  UefiLib
+  PrintLib
+  DebugLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  UefiApplicationEntryPoint
+  ShellLib
+  DevicePathLib
+  BaseCryptLib
+  
+[Protocols]
+  gEfiShellParametersProtocolGuid
+  gEfiSmbiosProtocolGuid
+  gEfiPciIoProtocolGuid
+  gEfiDevicePathProtocolGuid
+  gEfiLoadFileProtocolGuid
+  
+[Guids]
+
+  
+[BuildOptions]
+  *_*_*_CC_FLAGS = -DEFI_SHELL_APP -DCMD_REDUCE
+
+
